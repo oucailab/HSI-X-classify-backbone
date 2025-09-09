@@ -130,18 +130,17 @@ runner.run_experiment()
 
 | 模型名称 | 特殊说明 |
 |---------|----------|
-| FusAtNet | **默认模型** |
-| ExViT | - |
-| HybridSN | - |
-| FDNet | - |
-| MICF_Net | - |
-| M2FNet | - |
-| S2ENet | - |
-| DFINet | - |
-| AsyFFNet | - |
-| HCTNet | - |
-| MACN | - |
-| TBCNN | - |
+| [FusAtNet](https://ieeexplore.ieee.org/document/9150738) | **默认模型** |
+| [ExViT](https://ieeexplore.ieee.org/document/10147258) | - |
+| [HybridSN](https://ieeexplore.ieee.org/document/8736016) | - |
+| [MICF_Net](https://ieeexplore.ieee.org/document/10602541) | - |
+| [M2FNet](https://ieeexplore.ieee.org/document/10440123) | - |
+| [S2ENet](https://ieeexplore.ieee.org/document/9583936) | - |
+| [DFINet](https://ieeexplore.ieee.org/document/9494718) | - |
+| [AsyFFNet](https://pure.bit.edu.cn/en/publications/asymmetric-feature-fusion-network-for-hyperspectral-and-sar-image) | - |
+| [HCTNet](https://ieeexplore.ieee.org/document/9999457) | - |
+| [MACN](https://ieeexplore.ieee.org/document/10236462) | - |
+| [TBCNN](https://ieeexplore.ieee.org/document/8068943) | - |
 | CNN | - |
 
 
