@@ -111,37 +111,39 @@ runner.run_experiment()
 | TBCNN | 三分支卷积神经网络 | - |
 | CNN | 基础CNN网络 | - |
 
-## 📁 文件组织结构
+## 📁 项目文件夹结构
 
-运行实验后，文件将按以下结构自动组织：
+### 整体项目结构
 
 ```
-backbone/
-├── model/
-│   ├── FusAtNet/
-│   │   ├── Houston2013_model_pca=30_window=11_lr=0.0001_epochs=10.pth
-│   │   └── Augsburg_model_pca=30_window=11_lr=0.0001_epochs=5.pth
-│   └── EyeNet/
-│       └── Houston2013_model_pca=50_window=11_lr=0.0001_epochs=1.pth
-├── log/
-│   ├── FusAtNet/
-│   │   ├── Houston2013_log_pca=30_window=11_lr=0.0001_epochs=10.txt
-│   │   └── Augsburg_log_pca=30_window=11_lr=0.0001_epochs=5.txt
-│   └── EyeNet/
-│       └── Houston2013_log_pca=50_window=11_lr=0.0001_epochs=1.txt
-├── report/
-│   ├── FusAtNet/
-│   │   ├── Houston2013_report_pca=30_window=11_lr=0.0001_epochs=10.txt
-│   │   └── Augsburg_report_pca=30_window=11_lr=0.0001_epochs=5.txt
-│   └── EyeNet/
-│       └── Houston2013_report_pca=50_window=11_lr=0.0001_epochs=1.txt
-└── pic/
-    ├── FusAtNet/
-    │   ├── Houston2013_pca=30_window=11_lr=0.0001_epochs=10.png
-    │   └── Augsburg_pca=30_window=11_lr=0.0001_epochs=5.png
-    └── EyeNet/
-        └── Houston2013_pca=50_window=11_lr=0.0001_epochs=1.png
+data/
+├── [DatasetName]/              # 按数据集名称分类
+│   ├── [datasetname]_gt.mat/            # ground truth
+│   ├── [datasetname]_hsi.mat/            # hyperspectral image
+│   ├── [datasetname]_[x].mat/            # sar/lidar
+│   └── [datasetname]_index.mat/            # 训练集与测试集索引
+HSI-X-classify-backbone/
+├── README.md                    # 项目说明文档
+├── requirements.txt             # Python依赖包列表
+├── code/                        # 源代码目录
+│
+├── model/                      # 训练后的模型文件
+│   └── [ModelName]/            # 按模型名称分类
+│       └── [Dataset]_model_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].pth
+│
+├── log/                        # 训练日志文件
+│   └── [ModelName]/            # 按模型名称分类
+│       └── [Dataset]_log_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].txt
+│
+├── report/                     # 测试报告文件
+│   └── [ModelName]/            # 按模型名称分类
+│       └── [Dataset]_report_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].txt
+│
+└── pic/                        # 可视化结果图像
+    └── [ModelName]/            # 按模型名称分类
+        └── [Dataset]_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].png
 ```
+
 
 ## 🎯 使用场景示例
 
