@@ -4,6 +4,39 @@
 
 本项目是一个用于多源遥感数据融合分类的深度学习框架，支持多种深度学习模型，包括 FusAtNet等。经过架构重构，项目现在采用统一配置管理系统，解决了原有多文件修改的不便问题。（环境可以自己配，提供的requirements.txt比较冗余）
 
+## 📁 项目文件夹结构
+
+### 整体项目结构
+
+```
+data/
+├── [DatasetName]/              # 按数据集名称分类
+│   ├── [datasetname]_gt.mat/            # ground truth
+│   ├── [datasetname]_hsi.mat/            # hyperspectral image
+│   ├── [datasetname]_[x].mat/            # sar/lidar
+│   └── [datasetname]_index.mat/            # 训练集与测试集索引
+HSI-X-classify-backbone/
+├── README.md                    # 项目说明文档
+├── requirements.txt             # Python依赖包列表
+├── code/                        # 源代码目录
+│
+├── model/                      # 训练后的模型文件
+│   └── [ModelName]/            # 按模型名称分类
+│       └── [Dataset]_model_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].pth
+│
+├── log/                        # 训练日志文件
+│   └── [ModelName]/            # 按模型名称分类
+│       └── [Dataset]_log_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].txt
+│
+├── report/                     # 测试报告文件
+│   └── [ModelName]/            # 按模型名称分类
+│       └── [Dataset]_report_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].txt
+│
+└── pic/                        # 可视化结果图像
+    └── [ModelName]/            # 按模型名称分类
+        └── [Dataset]_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].png
+```
+
 ## 🚀 快速开始
 
 ### 1. 基本运行方式
@@ -110,39 +143,6 @@ runner.run_experiment()
 | MACN | 多注意力卷积网络 | - |
 | TBCNN | 三分支卷积神经网络 | - |
 | CNN | 基础CNN网络 | - |
-
-## 📁 项目文件夹结构
-
-### 整体项目结构
-
-```
-data/
-├── [DatasetName]/              # 按数据集名称分类
-│   ├── [datasetname]_gt.mat/            # ground truth
-│   ├── [datasetname]_hsi.mat/            # hyperspectral image
-│   ├── [datasetname]_[x].mat/            # sar/lidar
-│   └── [datasetname]_index.mat/            # 训练集与测试集索引
-HSI-X-classify-backbone/
-├── README.md                    # 项目说明文档
-├── requirements.txt             # Python依赖包列表
-├── code/                        # 源代码目录
-│
-├── model/                      # 训练后的模型文件
-│   └── [ModelName]/            # 按模型名称分类
-│       └── [Dataset]_model_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].pth
-│
-├── log/                        # 训练日志文件
-│   └── [ModelName]/            # 按模型名称分类
-│       └── [Dataset]_log_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].txt
-│
-├── report/                     # 测试报告文件
-│   └── [ModelName]/            # 按模型名称分类
-│       └── [Dataset]_report_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].txt
-│
-└── pic/                        # 可视化结果图像
-    └── [ModelName]/            # 按模型名称分类
-        └── [Dataset]_pca=[channels]_window=[size]_lr=[rate]_epochs=[num].png
-```
 
 
 ## 🎯 使用场景示例
