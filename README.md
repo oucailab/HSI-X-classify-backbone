@@ -115,16 +115,16 @@ runner.run_experiment()
 
 ### 3. 数据集对应关系
 
-| 编号 | 数据集名称 | 类别数 | 描述 |
+| 编号 | 数据集名称 | 类别数 | 描述 | 
 |------|-----------|-------|------|
-| 0 | Houston2013 | 15 | 休斯顿2013数据集 |
-| 1 | Houston2018 | 20 | 休斯顿2018数据集 |
-| 2 | Trento | 6 | 特伦托数据集 |
-| 3 | Berlin | 8 | 柏林数据集 |
-| 4 | Augsburg | 7 | 奥格斯堡数据集 |
-| 5 | YellowRiverEstuary | 18 | 黄河口数据集 |
-| 6 | LN01 | 10 | 辽宁01数据集 |
-| 7 | LN02 | 9 | 辽宁02数据集 |
+| 0 | [Houston2013](https://ieeexplore.ieee.org/document/6776408) | 15 | 休斯顿2013数据集 |
+| 1 | [Houston2018](https://ieeexplore.ieee.org/document/8328995) | 20 | 休斯顿2018数据集 |
+| 2 | [Trento](https://ieeexplore.ieee.org/document/8000656) | 6 | 特伦托数据集 |
+| 3 | [Berlin](https://dataservices.gfz-potsdam.de/enmap/showshort.php?id=escidoc:1823890) | 8 | 柏林数据集 |
+| 4 | [Augsburg](https://github.com/zhu-xlab/augsburg_Multimodal_Data_Set_MDaS/blob/main/README.md) | 7 | 奥格斯堡数据集 |
+| 5 | [YellowRiverEstuary](https://ieeexplore.ieee.org/document/9494718) | 18 | 黄河口数据集 |
+| 6 | [LN01](https://ieeexplore.ieee.org/document/10703123) | 10 | 辽宁01数据集 |
+| 7 | [LN02](https://ieeexplore.ieee.org/document/10703123) | 9 | 辽宁02数据集 |
 
 ### 4. 支持的模型
 
