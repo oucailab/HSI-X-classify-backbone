@@ -128,21 +128,21 @@ runner.run_experiment()
 
 ### 4. 支持的模型
 
-| 模型名称 | 描述 | 特殊说明 |
-|---------|------|----------|
-| FusAtNet | 融合注意力网络 | **默认模型** |
-| ExViT | 基于Transformer的视觉模型 | - |
-| HybridSN | 混合光谱网络 | - |
-| FDNet | 频域网络 | - |
-| MICF_Net | 多尺度交互对比融合网络 | 需要原型参数 |
-| M2FNet | 多模态融合网络 | - |
-| S2ENet | 空间-光谱嵌入网络 | - |
-| DFINet | 深度特征交互网络 | - |
-| AsyFFNet | 非对称特征融合网络 | - |
-| HCTNet | 分层卷积Transformer网络 | - |
-| MACN | 多注意力卷积网络 | - |
-| TBCNN | 三分支卷积神经网络 | - |
-| CNN | 基础CNN网络 | - |
+| 模型名称 | 特殊说明 |
+|---------|----------|
+| FusAtNet | **默认模型** |
+| ExViT | - |
+| HybridSN | - |
+| FDNet | - |
+| MICF_Net | - |
+| M2FNet | - |
+| S2ENet | - |
+| DFINet | - |
+| AsyFFNet | - |
+| HCTNet | - |
+| MACN | - |
+| TBCNN | - |
+| CNN | - |
 
 
 ## 🎯 使用场景示例
