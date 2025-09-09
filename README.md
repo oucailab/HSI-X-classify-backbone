@@ -286,6 +286,6 @@ data/
 3. 更新配置中的 `model_name` 选项
 
 ### 添加新数据集
-1. 在 `dataset.py` 中添加数据加载逻辑
+1. 在 `dataset.py`,`report.py`,`visualization.py` 中添加数据加载逻辑
 2. 更新 `config.py` 中的数据集配置
 
