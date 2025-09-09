@@ -126,7 +126,7 @@ def visYellowRiverEstuary(datasetType, net, data, save_path, device, model):
         [0, 0, 255]       # 海域- Sea
     ]
     # YellowRiverEstuary 尺寸
-    yellowRiverEstuary_size = [3555, 4026]
+    yellowRiverEstuary_size = [1185, 1342]
     print("YellowRiverEstuary Start!")
     visualization(datasetType, net, data, save_path, device, yellowRiverEstuary_color_map, yellowRiverEstuary_size, model)
     print("Visualization Success!")
@@ -156,15 +156,15 @@ def visLN01(datasetType, net, data, save_path, device, model):
 def visLN02(datasetType, net, data, save_path, device, model):
     # LN02 color map
     ln02_color_map = [
-        [77, 182, 172],   # 1: Liao river
+        [232, 116, 116],    # 1: Reed water system
         [187, 104, 201],   # 2: Phragmites australis
         [131, 134, 203],   # 3: Paddy fields
         [79, 195, 247],    # 4: Intertidal muds
-        [255, 152, 0],     # 5: Suaeda salsa
+        [77, 182, 172],   # 5: Liao river
         [139, 195, 74],    # 6: Construction land
-        [126, 88, 74],     # 7: Industrial land
-        [255, 202, 83],    # 8: Aquaculture ponds
-        [232, 116, 116]    # 9: Reed water system
+        [255, 202, 83],    # 7: Aquaculture ponds
+        [255, 152, 0],     # 8: Suaeda salsa
+        [126, 88, 74],     # 9: Industrial land
     ]
     # LN02 尺寸
     ln02_size = [1536, 1536]
