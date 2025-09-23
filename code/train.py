@@ -4,6 +4,7 @@ from dataset import *
 
 import time
 from sklearn.metrics import accuracy_score
+from tqdm import tqdm
 
 # 使用新的配置系统
 import config
@@ -176,7 +177,12 @@ def train(epochs, lr, model, cuda, train_loader, test_loader, out_features, mode
         since = time.time()
         net.train()
         
-        for i, (hsi_pca, hsi, sar, tr_labels) in enumerate(train_loader):
+        # 训练进度条（显示当前epoch的批次进度）
+        try:
+            iterator = tqdm(train_loader, desc=f'Epoch {epoch+1}/{epochs}', unit='batch')
+        except Exception:
+            iterator = train_loader
+        for i, (hsi_pca, hsi, sar, tr_labels) in enumerate(iterator):
             hsi_pca = hsi_pca.to(device)
             sar = sar.to(device)
             hsi = hsi.to(device)
