@@ -26,7 +26,7 @@ class ExperimentConfig:
     learning_rate: float = 0.0001
     epochs: int = 10
     batch_size: int = 128
-    num_workers: int = 4
+    num_workers: int = 0
     random_seed: int = 6
     
     # 网络参数
