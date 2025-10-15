@@ -57,7 +57,11 @@ def normalize3D(data):
 
 def normalize2D(data):
     # 将数据从 (H, W, C) 转换为 (H*W, C) 以便进行归一化
-    H, W = data.shape
+    if len(data.shape) == 3:
+        H, W, C = data.shape
+        data = data.reshape(H, W*C)
+    else:
+        H, W = data.shape
     data_reshaped = data.reshape(-1)
 
     # 使用 preprocessing.scale 进行归一化
@@ -205,55 +209,35 @@ def getHouston2013Data(hsi_path, lidar_path, gt_path, index_path, channels, wind
     print("Houston2013!")
     houston2013_keys = ['houston_hsi', 'houston_lidar', 'houston_gt', 'houston_train', 'houston_test', 'houston_all']
     return getData(hsi_path, lidar_path, gt_path, index_path, houston2013_keys, channels, windowSize, batch_size, num_workers, datatype=0)
-# 获取 Houston2013 数据集
-def getTrntstHouston2013Data(hsi_path, lidar_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("Houston2013!")
-    houston2013_keys = ['houston_hsi', 'houston_lidar', 'houston_gt', 'houston_train', 'houston_test', 'houston_all']
-    return getTrntstData(hsi_path, lidar_path, index_path, houston2013_keys, channels, windowSize, batch_size, num_workers)
+
 
 # 获取 Houston2018 数据集
 def getHouston2018Data(hsi_path, lidar_path, gt_path, index_path, channels, windowSize, batch_size, num_workers):
     print("Houston2018!")
     houston2018_keys = ['houston_hsi', 'houston_lidar', 'houston_gt', 'houston_train', 'houston_test', 'houston_all']
     return getData(hsi_path, lidar_path, gt_path, index_path, houston2018_keys, channels, windowSize, batch_size, num_workers, datatype=1)
-# 获取 Houston2018 数据集
-def getTrntstHouston2018Data(hsi_path, lidar_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("Houston2018!")
-    houston2018_keys = ['houston_hsi', 'houston_lidar', 'houston_gt', 'houston_train', 'houston_test', 'houston_all']
-    return getTrntstData(hsi_path, lidar_path, index_path, houston2018_keys, channels, windowSize, batch_size, num_workers)
+
 
 # 获取 Trento 数据集
 def getTrentoData(hsi_path, lidar_path, gt_path, index_path, channels, windowSize, batch_size, num_workers):
     print("Trento!")
     trento_keys = ['trento_hsi', 'trento_lidar', 'trento_gt', 'trento_train', 'trento_test', 'trento_all']
     return getData(hsi_path, lidar_path, gt_path, index_path, trento_keys, channels, windowSize, batch_size, num_workers, datatype=2)
-# 获取 Trento 数据集
-def getTrntstTrentoData(hsi_path, lidar_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("Trento!")
-    trento_keys = ['trento_hsi', 'trento_lidar', 'trento_gt', 'trento_train', 'trento_test', 'trento_all']
-    return getTrntstData(hsi_path, lidar_path, index_path, trento_keys, channels, windowSize, batch_size, num_workers)
+
 
 # 获取 Berlin 数据集
 def getBerlinData(hsi_path, sar_path, gt_path, index_path, channels, windowSize, batch_size, num_workers):
     print("Berlin!")
     berlin_keys = ['berlin_hsi', 'berlin_sar', 'berlin_gt', 'berlin_train', 'berlin_test', 'berlin_all']
     return getData(hsi_path, sar_path, gt_path, index_path, berlin_keys, channels, windowSize, batch_size, num_workers, datatype=3)
-# 获取 Berlin 数据集
-def getTrntstBerlinData(hsi_path, sar_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("Berlin!")
-    berlin_keys = ['berlin_hsi', 'berlin_sar', 'berlin_gt', 'berlin_train', 'berlin_test', 'berlin_all']
-    return getTrntstData(hsi_path, sar_path, index_path, berlin_keys, channels, windowSize, batch_size, num_workers)
+
 
 # 获取 Augsburg 数据集
 def getAugsburgData(hsi_path, sar_path, gt_path, index_path, channels, windowSize, batch_size, num_workers):
     print("Augsburg!")
     augsburg_keys = ['augsburg_hsi', 'augsburg_sar', 'augsburg_gt', 'augsburg_train', 'augsburg_test', 'augsburg_all']
     return getData(hsi_path, sar_path, gt_path, index_path, augsburg_keys, channels, windowSize, batch_size, num_workers, datatype=4)
-# 获取 Augsburg 数据集
-def getTrntstAugsburgData(hsi_path, sar_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("Augsburg!")
-    augsburg_keys = ['augsburg_hsi', 'augsburg_sar', 'augsburg_gt', 'augsburg_train', 'augsburg_test', 'augsburg_all']
-    return getTrntstData(hsi_path, sar_path, index_path, augsburg_keys, channels, windowSize, batch_size, num_workers)
+
 
 
 # 获取 YellowRiverEstuary 数据集
@@ -261,32 +245,20 @@ def getYellowRiverEstuaryData(hsi_path, sar_path, gt_path, index_path, channels,
     print("YellowRiverEstuary!")
     yellowRiverEstuary_keys = ['data', 'data', 'data', 'train_index', 'test_index', 'all_index']
     return getData(hsi_path, sar_path, gt_path, index_path, yellowRiverEstuary_keys, channels, windowSize, batch_size, num_workers, datatype=5)
-# 获取 YellowRiverEstuary 数据集
-def getTrntstYellowRiverEstuaryData(hsi_path, sar_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("YellowRiverEstuary!")
-    yellowRiverEstuary_keys = ['data', 'data', 'data', 'train_index', 'test_index', 'all_index']
-    return getTrntstData(hsi_path, sar_path, index_path, yellowRiverEstuary_keys, channels, windowSize, batch_size, num_workers)
+
 
 # 获取 LN01 数据集
 def getLN01Data(hsi_path, msi_path, gt_path, index_path, channels, windowSize, batch_size, num_workers):
     print("LN01!")
     ln01_keys = ['Out', 'MSI', 'cdata', 'train_index', 'test_index', 'all_index']
     return getData(hsi_path, msi_path, gt_path, index_path, ln01_keys, channels, windowSize, batch_size, num_workers, datatype=6)
-# 获取 LN01 数据集
-def getTrntstLN01Data(hsi_path, msi_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("LN01!")
-    ln01_keys = ['Out', 'MSI', 'cdata', 'train_index', 'test_index', 'all_index']
-    return getTrntstData(hsi_path, msi_path, index_path, ln01_keys, channels, windowSize, batch_size, num_workers)
+
 # 获取 LN02 数据集
 def getLN02Data(hsi_path, msi_path, gt_path, index_path, channels, windowSize, batch_size, num_workers):
     print("LN02!")
     ln02_keys = ['Out', 'MSI', 'data', 'train_index', 'test_index', 'all_index']
     return getData(hsi_path, msi_path, gt_path, index_path, ln02_keys, channels, windowSize, batch_size, num_workers, datatype=7)
-# 获取 LN02 数据集
-def getTrntstLN02Data(hsi_path, msi_path, index_path, channels, windowSize, batch_size, num_workers):
-    print("LN02!")
-    ln02_keys = ['Out', 'MSI', 'data', 'train_index', 'test_index', 'all_index']
-    return getTrntstData(hsi_path, msi_path, index_path, ln01_keys, channels, windowSize, batch_size, num_workers)    
+ 
 def getMyData(datasetType, channels, windowSize, batch_size, num_workers):
     if(datasetType == 0):
         hsi_path = '../../data/Houston2013/houston_hsi.mat'
