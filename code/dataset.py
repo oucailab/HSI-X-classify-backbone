@@ -174,14 +174,9 @@ def getData(hsi_path, X_path, gt_path, index_path, keys, channels, windowSize, b
     HXtrainset = HXDataset(hsi_pca, X, train_index,
                            windowSize, hsi=hsi, gt=gt, transform=ToTensor(), train=True)
     HXtestset = HXDataset(hsi_pca, X, test_index,
-                           windowSize, hsi=hsi, gt=gt, transform=ToTensor(), train=True)
-    if datatype == 0 or datatype == 1:
-        HXtrntstset = HXDataset(hsi_pca, X, trntst_index,
-                                windowSize, hsi=hsi, gt=gt, transform=ToTensor(), train=True)
-    else:
-        HXtrntstset = HXDataset(hsi_pca, X, trntst_index,
+                           windowSize, hsi=hsi, gt=gt, transform=ToTensor())
+    HXtrntstset = HXDataset(hsi_pca, X, trntst_index,
                                 windowSize, hsi=hsi, transform=ToTensor())
-
     HXallset = HXDataset(hsi_pca, X, all_index,
                          windowSize, hsi=hsi, transform=ToTensor())
     # 创建 Dataloader
@@ -310,4 +305,5 @@ def getMyData(datasetType, channels, windowSize, batch_size, num_workers):
         train_loader, test_loader, trntst_loader, all_loader ,hsi_pca_wight = getLN02Data(hsi_path, msi_path, gt_path, index_path, channels, windowSize, batch_size, num_workers)    
         
     return train_loader, test_loader, trntst_loader, all_loader ,hsi_pca_wight
+
 
