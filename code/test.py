@@ -90,10 +90,7 @@ def myTest(datasetType, model):
     train_loader, test_loader, trntst_loader, all_loader, hsi_pca_wight = getMyData(datasetType, channels, windowSize, batch_size, num_workers)
     set_random_seed(random_seed)
     
-    if datasetType == 0 or datasetType == 1:
-        getMyReport(datasetType, net, trntst_loader, report_path[datasetType], device, model)
-    else:
-        getMyReport(datasetType, net, test_loader, report_path[datasetType], device, model)
+    getMyReport(datasetType, net, test_loader, report_path[datasetType], device, model)
         
     if tsne == True:
         t_sne_full(net, test_loader, datasetType)
