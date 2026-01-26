@@ -62,6 +62,7 @@ def model_forward_test(model, net, hsi_pca, hsi, sar, additional_params=None):
     return outputs
 
 def myTest(datasetType, model):
+    
     """测试函数，从配置系统获取参数"""
     cuda = config.get_value('cuda')
     device = torch.device(cuda if torch.cuda.is_available() else "cpu")
@@ -87,8 +88,9 @@ def myTest(datasetType, model):
     print(f"测试参数: cuda={cuda}, visualization={visualization}, tsne={tsne}")
     
     net = torch.load(model_savepath[datasetType])
-    train_loader, test_loader, trntst_loader, all_loader, hsi_pca_wight = getMyData(datasetType, channels, windowSize, batch_size, num_workers)
     set_random_seed(random_seed)
+    train_loader, test_loader, trntst_loader, all_loader, hsi_pca_wight = getMyData(datasetType, channels, windowSize, batch_size, num_workers)
+    
     
     getMyReport(datasetType, net, test_loader, report_path[datasetType], device, model)
         
