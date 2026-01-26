@@ -267,8 +267,8 @@ def myTrain(datasetType, model):
     log_path = config.get_value('log_path')
     
     print(f"训练参数: model={model}, epochs={epoch_nums}, lr={lr}, cuda={cuda}")
-    
-    train_loader, test_loader, trntst_loader, all_loader, hsi_pca_wight = getMyData(datasetType, channels, windowSize, batch_size, num_workers)
     set_random_seed(random_seed)
+    train_loader, test_loader, trntst_loader, all_loader, hsi_pca_wight = getMyData(datasetType, channels, windowSize, batch_size, num_workers)
+    
     
     train(epoch_nums, lr, model, cuda, train_loader, test_loader, out_features[datasetType], model_savepath[datasetType], log_path[datasetType], hsi_pca_wight, datasetType)
