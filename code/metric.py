@@ -56,40 +56,6 @@ def applyPCA(data, n_components):
 
 
 
-# 改进后的美观输入
-def create_structured_hsi(input_shape):
-    """
-    生成具有空间结构的HSI输入数据
-    参数：
-    input_shape: 输入形状 (batch, seq, channels, height, width)
-    """
-    batch, seq, channels, H, W = input_shape
-    
-    # 创建基础空间模式（使用正弦波+梯度）
-    x = torch.linspace(0, 4*np.pi, W).cuda()
-    y = torch.linspace(0, 4*np.pi, H).cuda()
-    xx, yy = torch.meshgrid(x, y, indexing='xy')
-    
-    # 基础模式1：正弦波（水平方向）
-    pattern1 = torch.sin(xx).unsqueeze(0).unsqueeze(0)
-    
-    # 基础模式2：梯度（垂直方向）
-    pattern2 = yy.unsqueeze(0).unsqueeze(0) / yy.max()
-    
-    # 组合模式（通道维度叠加）
-    structured_data = 0.6*pattern1 + 0.4*pattern2
-    
-    # 扩展到指定通道数（保持空间模式一致）
-    hsi = structured_data.repeat(1, 1, channels, 1, 1)
-    
-    # 添加轻微噪声（模拟真实数据）
-    hsi += 0.1*torch.randn_like(hsi)
-    
-    # 归一化到[-1,1]范围
-    hsi = 2*(hsi - hsi.min())/(hsi.max() - hsi.min()) - 1
-    
-    return hsi
-
 # #MSFMamba
 # torch.cuda.empty_cache()
 
@@ -102,7 +68,6 @@ datatype = 4
 
 input1 = (1, 1, hsi_channel, window_size, window_size)
 hsi = torch.randn(input1).cuda()
-# hsi = create_structured_hsi(input1).cuda()
 # hsi_pca, hsi_pca_wight_tensor = applyPCA(hsi, pca_channel)
 input2 = (1, sar_channel, window_size, window_size) 
 sar = torch.randn(input2).cuda()
