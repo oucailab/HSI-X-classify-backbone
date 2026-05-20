@@ -1,0 +1,18 @@
+{
+  "experiment_name": "train_experiment",
+  "dataset_type": 4,
+  "model_name": "RSCNet",
+  "cuda_device": "cuda:0",
+  "learning_rate": 0.0001,
+  "epochs": 100,
+  "batch_size": 128,
+  "num_workers": 0,
+  "random_seed": 6,
+  "channels": 30,
+  "window_size": 11,
+  "enable_training": true,
+  "enable_testing": true,
+  "enable_visualization": true,
+  "enable_tsne": false,
+  "enable_erf": false
+}
