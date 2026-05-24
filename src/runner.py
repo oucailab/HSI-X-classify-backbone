@@ -1,4 +1,5 @@
 from src.config import ExperimentConfig, ConfigManager, create_quick_config, create_experiment_config_from_cli
+from src.email_notifier import notify_experiment_result
 
 import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
@@ -30,6 +31,13 @@ class ExperimentRunner:
                 print("开始测试...")
                 self.run_testing()
                 print("测试完成!")
+
+            if self.config.enable_email_notification and self.config.enable_testing:
+                try:
+                    notify_experiment_result(self.config)
+                    print("邮件通知已发送!")
+                except Exception as e:
+                    print(f"邮件通知失败: {str(e)}")
 
             print(f"实验 {self.config.experiment_name} 完成!")
 

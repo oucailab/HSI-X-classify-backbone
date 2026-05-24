@@ -32,3 +32,4 @@ data/
 *.log
 *.out
 *.err
+email_config.json
