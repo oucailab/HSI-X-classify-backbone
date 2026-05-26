@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "smtp_host": "",
+  "smtp_port": 465,
+  "use_ssl": true,
+  "sender_email": "",
+  "sender_password": "",
+  "default_recipient": ""
+}
