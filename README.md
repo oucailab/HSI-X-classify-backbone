@@ -2,6 +2,21 @@
 
 用于高光谱与辅助模态（LiDAR / SAR / MSI）融合分类的统一实验骨架。项目提供了统一的实验配置、数据加载、模型注册、训练、评估与可视化流程，便于在多个公开数据集上复现实验、横向对比不同模型，并继续扩展新模型。
 
+如果本项目对你的研究有所帮助，欢迎引用我们的最新工作：
+
+```bibtex
+@ARTICLE{rscnet26tgrs,
+  author={Gong, Chuanzheng and Gao, Feng and Lin, Junyan and Dong, Junyu and Du, Qian},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  title={Representative Spectral Correlation Network for Multisource Remote Sensing Image Classification},
+  year={2026},
+  volume={64},
+  pages={1-14}
+}
+```
+
+同时，我们的最新工作也已经开源，欢迎关注 [oucailab/RSCNet](https://github.com/oucailab/RSCNet)。
+
 ---
 
 ## 1. 项目概览
@@ -126,6 +141,8 @@ src.models.<model>.adapter
 ---
 
 ## 3. 支持的数据集
+
+数据集下载链接：[Google Drive](https://drive.google.com/drive/folders/1P9pr-6vbdnS4PPdo1fhg5jP9oZC4ct-v?usp=sharing)。
 
 当前配置中内置了 8 个数据集编号，定义见 [src/config.py:20-29](src/config.py#L20-L29) 与 [src/data.py:270-320](src/data.py#L270-L320)。
 
@@ -921,4 +938,3 @@ ExperimentConfig(
 - [src/model_registry.py](src/model_registry.py)：理解模型如何被统一接入
 
 ---
-
